@@ -1,0 +1,22 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+.jumbotron{
+            // display:grid;
+            height:300px;
+            max-width:100% ;
+            padding: 3rem; 
+            background:asset-url('sport.img/active-exercise.jpg');
+            background-size: cover;
+            background-position: center;
+}
+.center {
+    text-align:center;
+
+    
+    
+}
+.btn{
+  margin: 200px ;
+}
+      
+
