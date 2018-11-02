@@ -3,7 +3,7 @@
     <%# This line will get replace with categories from Sport Table in data  %>
     <% @categories.each do |cat| %>
       <div class="category-panel-body">    
-        <%= link_to(image_tag("#{cat.downcase}.png",class: "cat-img-top", alt: "category image"), pages_path) %>
+        <%= link_to(image_tag("#{cat.downcase}.png",class: "cat-img-top", alt: "category image"), coaches_path) %>
           <h3 class="category-title text-center"><%= cat.capitalize %></h3>
       </div>
     <% end %>
