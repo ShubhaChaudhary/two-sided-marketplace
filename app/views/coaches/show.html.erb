@@ -1,17 +1,27 @@
+
 <div class="panel panel-default">
-  <% @coach.each do |k,n| %>
-    <ul class="media-list md-6">
-        <li class="media">
-          <div class="media-left">
-            <%= image_tag(n[:image], class: "media-object") %>
+  <div class="media">
+    <% @coach.each do |item, detail| %>
+      <div class="media-left media-middle">
+        <%= image_tag(detail[:image], class: "media-object", alt: "Profile image") %>
+
+        <div class="panel">
+          <div class="card">
+            <div class="card-block">
+              <h4 class="card-title text-center"><%= "#{detail[:expertise]} Coach" %></h4>
+              <p class="lead text-center">*****</p>
+            </div>
           </div>
-          <div class="media-body md-6">
-            <h4 class="card-title"><%= n[:name] %></h4>
-            <h5 class="card-title"><%= n[:city] %></h5>
-            <p class="card-text"><%= n[:description] %></p>
-            <%= link_to('Buy',class: "btn btn-warning" ) %>
-          </div>
-        </li>
-      </ul>
-  <% end %>
+      </div>
+
+      </div>
+      <div class="media-body">
+        <h4 class="media-heading"><%= detail[:name] %></h4>
+        <h5 class="p-2"><%= detail[:city] %></h5>
+        <p class="p-2"><%= detail[:description] %></p>
+        <p class="text-center bg bg-danger">Au$50/hr</p>
+        <%= link_to('Buy Now', coaches_path, class: "btn btn-primary" ) %>
+      </div>
+    <% end %>
+  </div>
 </div>
