@@ -1,3 +1,20 @@
 // Place all the styles related to the Pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.media {
+    padding: 10px;
+}
+
+.media-body {
+    padding: 0 25px;
+}
+
+.py-5 {
+    padding: 5px;
+}
+
+.lead {
+    font-size: 50px;
+    color: #999;
+    font-weight: 600;
+}
