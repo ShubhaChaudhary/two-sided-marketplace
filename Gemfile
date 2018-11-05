@@ -88,3 +88,5 @@ gem 'trix'
 gem "figaro"
 
 
+
+gem "binding_of_caller", "~> 0.8.0"

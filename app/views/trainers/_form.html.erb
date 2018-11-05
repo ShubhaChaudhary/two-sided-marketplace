@@ -1,0 +1,19 @@
+
+<%= simple_form_for(@trainer) do |f| %>
+
+  <div class="form-inputs">
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :phone %>
+    <%= f.input :bio, as: :text %>
+    <%= f.input :experience %>
+    <%= f.input :photo %>
+    <%= f.input :user_id %>
+    <%= f.input :account_id %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, class: "btn btn-normal" %>
+  </div>
+<% end %>
+<br />
