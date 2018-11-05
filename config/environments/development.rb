@@ -61,15 +61,25 @@ Rails.application.configure do
  
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
-  config.action_mailer.delivery_method = :stmp
-  config.action_mailer.stmp_settings = {
-   address: "stmp.gmail.com",
-   port: 587,
-   enable_starttls_auto: true,
-   authentification: 'plain',
-   user_name: "jaouad.pxy@gmail.com",
-   password:'Hajar050580'
+  config.action_mailer.delivery_method = :smtp
 
+   config.action_mailer.smtp_settings = {
+   address: "smtp.mailgun.org",
+   port: 587,
+   domain: "sandbox2e8a999bdde74cf2b63ef708ae96dc45.mailgun.org",
+   authentification: 'plain',
+   user_name: "postmaster@sandbox2e8a999bdde74cf2b63ef708ae96dc45.mailgun.org",
+   password:'0647cb52be9b5323625358fb8119247a-c9270c97-f2211895',
 
   }
+
+  # config.action_mailer.smtp_settings = {
+  #  address: "smtp.googlemail.com",
+  #  port: 587,
+  #  enable_starttls_auto: true,
+  #  authentification: 'login',
+  #  user_name: "jaouad.pxy@gmail.com",
+  #  password:'Yasmine05051980',
+
+  # }
 end
