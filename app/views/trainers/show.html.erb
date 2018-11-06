@@ -1,44 +1,30 @@
-<p id="notice"><%= notice %></p>
+    <div class="panel panel-default">
+        <div class="media">
+        <div class="media-left media-middle">
+            <%= image_tag @trainer.avatar.url(:medium), class: "media-object" %>
+        </div>
+           
 
-<p>
-  <strong>Photo:</strong>
-  <%= @trainer.photo %>
-</p>
+       <div class="media-body">
+        <h4 class="media-heading"><%= @trainer.first_name %> &nbsp; <%= @trainer.last_name %></h4>
+        <h5 class="p-2">Brisbane</h5>
+        <p class="p-2"><%= @trainer.bio %></p>
+        <p class="p-2"><%= @trainer.phone %></p>
+        <p class="p-2"><%= @trainer.experience %></p>
+        <p class="text-center bg bg-danger py-5">Au$50/hr</p>
+        <%= link_to('Back', root_path, class: "btn btn-info" ) %>
+        <%= link_to('Add to Cart', 
+                     trainers_path, 
+                     class: "btn btn-warning pull-right", 
+                     id: 'add-to-cart' ) %>
+        <%= link_to('Book Now', 
+                     trainers_path, 
+                     class: "btn btn-active pull-right",
+                     id: 'book-now' ) %>
+      </div>
+        </div>
+    </div>
 
-<p>
-  <strong>First name:</strong>
-  <%= @trainer.first_name %>
-</p>
-
-<p>
-  <strong>Last name:</strong>
-  <%= @trainer.last_name %>
-</p>
-
-<p>
-  <strong>Phone:</strong>
-  <%= @trainer.phone %>
-</p>
-
-<p>
-  <strong>Bio:</strong>
-  <%= @trainer.bio %>
-</p>
-
-<p>
-  <strong>Experience:</strong>
-  <%= @trainer.experience %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @trainer.user_id %>
-</p>
-
-<p>
-  <strong>Account:</strong>
-  <%= @trainer.account_id %>
-</p>
 
 <%= link_to 'Edit', edit_trainer_path(@trainer) %> |
 <%= link_to 'Back', trainers_path %>

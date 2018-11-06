@@ -1,41 +1,27 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Trainers</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Photo</th>
-      <th>First name</th>
-      <th>Last name</th>
-      <th>Phone</th>
-      <th>Bio</th>
-      <th>Experience</th>
-      <th>User</th>
-      <th>Account</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @trainers.each do |trainer| %>
-      <tr>
-        <td><%= trainer.photo %></td>
-        <td><%= trainer.first_name %></td>
-        <td><%= trainer.last_name %></td>
-        <td><%= trainer.phone %></td>
-        <td><%= trainer.bio %></td>
-        <td><%= trainer.experience %></td>
-        <td><%= trainer.user_id %></td>
-        <td><%= trainer.account_id %></td>
-        <td><%= link_to 'Show', trainer %></td>
-        <td><%= link_to 'Edit', edit_trainer_path(trainer) %></td>
-        <td><%= link_to 'Destroy', trainer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
 
 <%= link_to 'New Trainer', new_trainer_path %>
+
+<h3 class="text-center">Brows your local Coaches in your city</h3>
+<% @trainers.each do |trainer| %>
+  <div class="panel panel-default">
+      <ul class="media-list md-6">
+        <li class="media">
+          <div class="media-left">
+            <%= image_tag(trainer.avatar.url(:medium), class: "media-object") %>
+
+          </div>
+          <div class="media-body md-6">
+            <h4 class="card-title"><%= trainer.first_name %></h4>
+            <h4 class="card-title"><%= trainer.first_name %></h4>
+            <h5 class="card-title"><%= "brisbane" %></h5>
+            <p class="card-text"><%= trainer.phone %></p>
+            <p class="card-text"><%= trainer.bio %></p>
+            <%= link_to('Visit the Profile', trainer_path(trainer), class: "btn-link" ) %>
+          </div>
+        </li>
+      </ul>
+  </div>
+<% end %>
