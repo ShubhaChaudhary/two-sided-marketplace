@@ -18,3 +18,37 @@
     color: #999;
     font-weight: 600;
 }
+
+.panel {
+    padding-bottom: 15px;
+}
+
+.btn-link {
+    margin-right: 5px;
+}
+
+.thumnail {
+    margin-top: 15px;
+    padding: 5px;
+}
+
+.category-title {
+    // color: #888;
+}
+
+.show-panel {
+    padding: 20px;
+}
+
+// .panel-default {
+//     list-style: none;
+//     padding: 0;
+//     @include make-row;
+//     li {
+//         @include make-xs-column(6);
+//         @include make-sm-column(4);
+//     }
+//     .panel {
+//         padding: 20px;
+//     }
+// }

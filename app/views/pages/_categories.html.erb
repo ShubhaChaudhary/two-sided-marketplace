@@ -1,12 +1,21 @@
-<div class="panel panel-default">
-  <div class="category-panel">    
-  
+
+<div class="panelz panelz-default">
+  <div class="row">
     <%# This line will get replace with categories from Sport Table in data  %>
     <% @categories.each do |cat| %>
-      <div class="category-panel-body">    
-        <%= link_to(image_tag("#{cat.downcase}.png",class: "cat-img-top", alt: "category image"), coaches_path) %>
-          <h3 class="category-title text-center"><%= cat.capitalize %></h3>
+      <div class="col-md-4 col-sm-6 col-xs-12 mb-5">
+        <div class="img-thumbnail thumbnail">
+          <%= link_to(image_tag("#{cat.downcase}.png"), coaches_path) %>
+          <div class="caption  text-center">
+            <h3><%= cat.capitalize %></h3>
+            <%= link_to('Show',   coaches_path, class: "btn-link" ) %>
+            <%= link_to('Edit',   coaches_path, class: "btn-link" ) %>
+            <%= link_to('Delete', coaches_path, method: :delete, data: {confirm:  "Are you sure?"}, class: "btn-link" ) %>
+          </div>         
+        </div>
       </div>
+      
+      <%# <br> %>
     <% end %>
   </div>
 </div>
