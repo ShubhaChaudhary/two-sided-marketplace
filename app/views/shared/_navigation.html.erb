@@ -11,7 +11,12 @@
           <%= link_to "SportsTime", root_path, class: "navbar-brand", id: "logo" %>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
+           
+        
+
           <ul class="nav navbar-nav navbar-right">
+          
+          <li><%= link_to 'I am a Trainer', new_trainer_path, class: "btn btn-normal" %></li>
           <% if (!user_signed_in?) %>
             <li><%= link_to 'Log in', new_user_session_path %></li>
             <li><%= link_to 'Sign Up', new_user_registration_path %></li>
@@ -19,7 +24,7 @@
             <li class="dropdown ">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
               &nbsp;<%= image_tag gravatar_url(current_user, 28), alt: "",  class: "img-circle" %>
-              <%= current_user.fullname%><span class="caret"></span></a>
+              <%= current_user.fullname %><span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="#">Link1</a></li>
                 <li><a href="#">Link2</a></li>

@@ -88,3 +88,7 @@ gem 'trix'
 gem "figaro"
 
 
+
+gem "binding_of_caller", "~> 0.8.0"
+
+gem "paperclip", "~> 6.1"

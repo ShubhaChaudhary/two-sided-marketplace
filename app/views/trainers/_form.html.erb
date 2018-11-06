@@ -1,0 +1,17 @@
+<%= simple_form_for @trainer, url: trainers_path do |f| %>
+
+  <div class="form-inputs">
+    <%= f.input :first_name, class: "form-control" %>
+    <%= f.input :last_name, class: "form-control" %>
+    <%= f.input :phone, class: "form-control" %>
+    <%= f.input :bio, as: :text, class: "form-control" %>
+    <%= f.input :experience, class: "form-control" %>
+  
+    <%= f.input :avatar, as: :file %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, class: "btn btn-normal" %>
+  </div>
+<% end %>
+<br />
