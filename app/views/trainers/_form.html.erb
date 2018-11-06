@@ -2,12 +2,12 @@
 <%= simple_form_for(@trainer) do |f| %>
 
   <div class="form-inputs">
-    <%= f.input :first_name %>
-    <%= f.input :last_name %>
-    <%= f.input :phone %>
-    <%= f.input :bio, as: :text %>
-    <%= f.input :experience %>
-    <%= f.input :photo %>
+    <%= f.input :first_name, class: "form-control" %>
+    <%= f.input :last_name, class: "form-control" %>
+    <%= f.input :phone, class: "form-control" %>
+    <%= f.input :bio, as: :text, class: "form-control" %>
+    <%= f.input :experience, class: "form-control" %>
+    <%= f.input :photo, class: "form-control" %>
     <%= f.input :user_id %>
     <%= f.input :account_id %>
   </div>
