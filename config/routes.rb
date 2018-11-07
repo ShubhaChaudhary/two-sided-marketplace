@@ -1,6 +1,8 @@
 require 'sidekiq/web'
 Rails.application.routes.draw do
+
   resources :trainers
+  resources :lessons
   root 'pages#home'
 
   devise_for :users,

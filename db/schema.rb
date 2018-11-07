@@ -10,10 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_06_013112) do
+ActiveRecord::Schema.define(version: 2018_11_07_062545) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "lessons", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.string "image"
+    t.bigint "trainer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.bigint "image_file_size"
+    t.datetime "image_updated_at"
+    t.index ["trainer_id"], name: "index_lessons_on_trainer_id"
+  end
+
+  create_table "sportls", force: :cascade do |t|
+    t.string "image"
+    t.string "title"
+    t.string "sport_category"
+    t.bigint "trainer_id"
+    t.string "location"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["trainer_id"], name: "index_sportls_on_trainer_id"
+  end
 
   create_table "trainers", force: :cascade do |t|
     t.string "photo"
@@ -30,6 +55,7 @@ ActiveRecord::Schema.define(version: 2018_11_06_013112) do
     t.string "avatar_content_type"
     t.bigint "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.bigint "trainer_id"
     t.index ["account_id"], name: "index_trainers_on_account_id"
     t.index ["user_id"], name: "index_trainers_on_user_id"
   end
@@ -61,4 +87,6 @@ ActiveRecord::Schema.define(version: 2018_11_06_013112) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "lessons", "trainers"
+  add_foreign_key "sportls", "trainers"
 end
