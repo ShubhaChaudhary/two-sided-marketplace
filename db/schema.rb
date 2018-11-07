@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_07_062545) do
+ActiveRecord::Schema.define(version: 2018_11_07_100437) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "lessons", force: :cascade do |t|
     t.string "title"
@@ -26,6 +32,7 @@ ActiveRecord::Schema.define(version: 2018_11_07_062545) do
     t.string "image_content_type"
     t.bigint "image_file_size"
     t.datetime "image_updated_at"
+    t.integer "category_id"
     t.index ["trainer_id"], name: "index_lessons_on_trainer_id"
   end
 
@@ -56,6 +63,7 @@ ActiveRecord::Schema.define(version: 2018_11_07_062545) do
     t.bigint "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.bigint "trainer_id"
+    t.integer "category_id"
     t.index ["account_id"], name: "index_trainers_on_account_id"
     t.index ["user_id"], name: "index_trainers_on_user_id"
   end

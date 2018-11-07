@@ -3,6 +3,7 @@
 
   <div class="form-inputs">
     <%= f.input :title, class: "form-control" %>
+    <%= f.collection_select :category_id, Category.all, :id, :name, {prompt: "Choose a Sport"}, class: "form-control" %>
     <%= f.input :description, class: "form-control" %>
     <%= f.input :trainer_id, class: "form-control" %>
     <%= f.input :image, as: :file, class: "form-control" %>

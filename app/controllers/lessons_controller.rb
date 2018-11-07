@@ -44,10 +44,10 @@ def index
 	private
 
 	def lessons_params
-		params.require(:lesson).permit(:title, :sport_category, :image, :trainer_id)
+		params.require(:lesson).permit(:title, :description, :image, :category_id)
 	end
 
-	def find_Lesson
+	def set_lesson
 		@lesson = Lesson.find(params[:id])
 	end
     
