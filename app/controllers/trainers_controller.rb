@@ -1,6 +1,7 @@
 class TrainersController < ApplicationController
   before_action :set_trainer, only: [:show, :edit, :update, :destroy]
-  # before_action :authenticate_user!, except: [:show]
+  before_action :authenticate_user!, except: [:show]
+  before_action :check_user, only: [:edit, :update, :destroy]
 
   # GET /trainers
   # GET /trainers.json
@@ -26,6 +27,7 @@ class TrainersController < ApplicationController
   # POST /trainers.json
   def create
     @trainer = Trainer.new(trainer_params)
+    @trainer.user_id = current_user.id
 
     if @trainer.save
         redirect_to @trainer
@@ -68,5 +70,10 @@ class TrainersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def trainer_params
       params.require(:trainer).permit(:photo, :first_name, :last_name, :phone, :bio, :experience, :user_id, :account_id, :avatar, :category_id)
+    end
+    def check_user
+      if  current_user.id != @trainer.user_id
+        redirect_to root_url, flash[:notice] = "Sorry, this listing belongs to someone else"
+    end
     end
 end

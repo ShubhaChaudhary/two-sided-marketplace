@@ -91,4 +91,19 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  config.serve_static_files = true
+  config.serve_static_assets = true
+
+   config.paperclip_defaults = {
+    storage: :s3,
+    path: 'class/:attachment/:id/:style/:filename',
+    s3_host_name: 's3-ap-southeast-2.amazonaws.com',
+    s3_credentials: {
+      bucket: 'twosidemarketplace',
+      access_key_id: 'AKIAJEY6BWJYB6NZY3QA',
+      secret_access_key: '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',
+      s3_region: 'ap-southeast-2'
+    }
+  }
 end

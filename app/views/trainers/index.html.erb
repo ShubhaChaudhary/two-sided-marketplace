@@ -2,7 +2,6 @@
 
 
 
-<%= link_to 'New Trainer', new_trainer_path %>
 
 <h3 class="text-center">Brows your local Coaches in your city</h3>
 <% @trainers.each do |trainer| %>
@@ -26,4 +25,7 @@
         </li>
       </ul>
   </div>
+<% end %>
+ <% if (user_signed_in?) %>
+<%= link_to 'New Trainer', new_trainer_path %>
 <% end %>
