@@ -1,5 +1,11 @@
 require 'sidekiq/web'
 Rails.application.routes.draw do
+  
+  resources :trainers do
+    collection do
+        get :terms
+      end
+  end
   resources :trainers
   root 'pages#home'
 
