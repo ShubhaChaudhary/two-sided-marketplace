@@ -5,12 +5,12 @@
     <% @categories.each do |cat| %>
       <div class="col-md-4 col-sm-6 col-xs-12 mb-5">
         <div class="img-thumbnail thumbnail">
-          <%= link_to(image_tag("#{cat.downcase}.png"), coaches_path) %>
+          <%= link_to(image_tag("#{cat.downcase}.png"), trainers_path) %>
           <div class="caption  text-center">
             <h3><%= cat.capitalize %></h3>
-            <%= link_to('Show',   coaches_path, class: "btn-link" ) %>
-            <%= link_to('Edit',   coaches_path, class: "btn-link" ) %>
-            <%= link_to('Delete', coaches_path, method: :delete, data: {confirm:  "Are you sure?"}, class: "btn-link" ) %>
+            <%= link_to('Show',   trainers_path, class: "btn-link" ) %>
+            <%= link_to('Edit',   trainers_path, class: "btn-link" ) %>
+            <%= link_to('Delete', trainers_path, method: :delete, data: {confirm:  "Are you sure?"}, class: "btn-link" ) %>
           </div>         
         </div>
       </div>
