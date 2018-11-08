@@ -9,12 +9,12 @@
     <% coach.each do |key, detail| %>  
        <% @coach_count = @coach_count + 1 %>   
       <div class="row">         
-        <div class="col-md-4">
+        <div class="col-md-3">
           <div class="img-thumbnail thumbnail">
             <%= link_to(image_tag(detail[:image]), coaches_path + "/#{@coach_count-1}" ) %>            
           </div>       
         </div>   
-        <div class="col-md-8">
+        <div class="col-md-9">
           <h3 class="media-heading"><%= detail[:name] %></h3>
           <h4><%= detail[:city] %></h4>
           <p class="card-text"><%= detail[:description] %></p>

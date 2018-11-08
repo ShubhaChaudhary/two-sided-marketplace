@@ -3,9 +3,9 @@
     <%# This line will get replace with categories from Sport Table in data  %>
     <%# <% @coach.each do |item, detail| %> 
     <%# <% @trainers.each do |trainer|%> 
-      <div class="col-md-3">
+      <div class="col-md-4">
         <div class="img-thumbnails thumbnail">
-        <%= image_tag(@trainer.avatar.url(:medium), class: "media-object") %> 
+        <%= image_tag(@trainer.avatar.url, class: "media-object") %> 
           <%# <%= image_tag(detail[:image], alt: "Profile image") %>                 
         </div>  
         <div class="caption  text-center">
@@ -14,7 +14,7 @@
         </div>      
       </div>    
 
-      <div class="col-md-9">
+      <div class="col-md-8">
         <h3 class="media-heading"><%= @trainer.first_name %> &nbsp; <%= @trainer.last_name %></h3>
 
 
