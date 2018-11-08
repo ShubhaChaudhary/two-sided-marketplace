@@ -36,17 +36,6 @@ ActiveRecord::Schema.define(version: 2018_11_07_100437) do
     t.index ["trainer_id"], name: "index_lessons_on_trainer_id"
   end
 
-  create_table "sportls", force: :cascade do |t|
-    t.string "image"
-    t.string "title"
-    t.string "sport_category"
-    t.bigint "trainer_id"
-    t.string "location"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["trainer_id"], name: "index_sportls_on_trainer_id"
-  end
-
   create_table "trainers", force: :cascade do |t|
     t.string "photo"
     t.string "first_name"
@@ -83,18 +72,10 @@ ActiveRecord::Schema.define(version: 2018_11_07_100437) do
     t.string "provider"
     t.string "uid"
     t.string "image"
-    t.string "stripe_id"
-    t.string "card_brand"
-    t.string "card_last4"
-    t.string "card_exp_month"
-    t.string "card_exp_year"
-    t.datetime "expires_at"
-    t.boolean "admin"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "lessons", "trainers"
-  add_foreign_key "sportls", "trainers"
 end

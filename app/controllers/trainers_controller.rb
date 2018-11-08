@@ -1,6 +1,6 @@
 class TrainersController < ApplicationController
   before_action :set_trainer, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:show]
+  # before_action :authenticate_user!, except: [:show]
 
   # GET /trainers
   # GET /trainers.json
@@ -27,16 +27,13 @@ class TrainersController < ApplicationController
   def create
     @trainer = Trainer.new(trainer_params)
 
-    respond_to do |format|
-      if @trainer.save
-        format.html { redirect_to @trainer, notice: 'Trainer was successfully created.' }
-        format.json { render :show, status: :created, location: @trainer }
+    if @trainer.save
+        redirect_to @trainer
       else
-        format.html { render :new }
-        format.json { render json: @trainer.errors, status: :unprocessable_entity }
+        render 'new'
       end
     end
-  end
+  
 
   # PATCH/PUT /trainers/1
   # PATCH/PUT /trainers/1.json
@@ -70,6 +67,6 @@ class TrainersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def trainer_params
-      params.require(:trainer).permit(:photo, :first_name, :last_name, :phone, :bio, :experience, :user_id, :account_id, :avatar)
+      params.require(:trainer).permit(:photo, :first_name, :last_name, :phone, :bio, :experience, :user_id, :account_id, :avatar, :category_id)
     end
 end
