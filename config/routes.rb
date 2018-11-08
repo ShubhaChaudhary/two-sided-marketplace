@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       end
   end
   resources :trainers
+  get "stripeit" => "trainers#stripeit"
   root 'pages#home'
 
   devise_for :users,

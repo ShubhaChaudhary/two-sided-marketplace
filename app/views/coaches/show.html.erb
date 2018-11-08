@@ -1,11 +1,9 @@
 
-
-
 <div class="panel panel-default show-panel">
   <div class="row">
     <%# This line will get replace with categories from Sport Table in data  %>
     <% @coach.each do |item, detail| %>
-      <div class="col-md-4">
+      <div class="col-md-3">
         <div class="img-thumbnail thumbnail">
           <%= image_tag(detail[:image], alt: "Profile image") %>                
         </div>  
@@ -15,7 +13,7 @@
         </div>      
       </div>    
 
-      <div class="col-md-8">
+      <div class="col-md-9">
         <h3 class="media-heading"><%= detail[:name] %></h3>
         <h5 class="p-2"><%= detail[:city] %></h5>
         <p class="p-2"><%= detail[:description] %></p>
