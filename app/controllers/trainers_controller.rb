@@ -66,7 +66,9 @@ class TrainersController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+  def terms
+    render 'terms'
+  end  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_trainer
@@ -75,6 +77,6 @@ class TrainersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def trainer_params
-      params.require(:trainer).permit(:photo, :first_name, :last_name, :phone, :bio, :experience, :user_id, :account_id, :avatar)
+      params.require(:trainer).permit(:photo, :first_name, :last_name, :phone, :bio, :experience, :user_id, :account_id, :avatar,:terms_of_services)
     end
 end

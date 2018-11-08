@@ -1,5 +1,6 @@
 require 'sidekiq/web'
 Rails.application.routes.draw do
+<<<<<<< HEAD
   # resources :trainers, only: [:index, :show, :edit, :new, :stripeit ]
   # # get "stripeit" => "trainers/stripeit"
   
@@ -9,6 +10,16 @@ Rails.application.routes.draw do
     resources :charges
   end
 
+=======
+  
+  resources :trainers do
+    collection do
+        get :terms
+      end
+  end
+  resources :trainers
+  get "stripeit" => "trainers#stripeit"
+>>>>>>> 91660e4ce91857db3c7472cb8c17f9f28f2abece
   root 'pages#home'
 
   devise_for :users,
