@@ -15,10 +15,12 @@
           </div>
           <div class="media-body md-6">
             <h4 class="card-title"><%= trainer.first_name %></h4>
-            <h4 class="card-title"><%= trainer.first_name %></h4>
+            <h4 class="card-title"><%= trainer.last_name %></h4>
+            
             <h5 class="card-title"><%= "brisbane" %></h5>
             <p class="card-text"><%= trainer.phone %></p>
             <p class="card-text"><%= trainer.bio %></p>
+
             <%= link_to('Visit the Profile', trainer_path(trainer), class: "btn-link" ) %>
           </div>
         </li>

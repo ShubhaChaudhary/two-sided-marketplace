@@ -1,4 +1,12 @@
 <%= simple_form_for @trainer do |f| %>
+ <% unless @trainer.errors.empty? %>
+<script type="text/javascript">
+<% @trainer.errors.full_messages.each do |value| %>
+    toastr.error('<%= value %>')
+<% end %>
+</script>
+
+<% end %>
 
   <div class="form-inputs">
     <%= f.input :first_name, class: "form-control" %>
