@@ -1,6 +1,7 @@
 require 'sidekiq/web'
 Rails.application.routes.draw do
   resources :trainers
+  get "stripeit" => "trainers#stripeit"
   root 'pages#home'
 
   devise_for :users,
