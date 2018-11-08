@@ -5,11 +5,11 @@ class ChargesController < ApplicationController
 
   def create
     puts "<<<<<<<< >>>>>>>>>>>>>>>>>"
-    # pp params
-    pp trainer = Trainer.find(params[:trainer_id])
+    pp params
+    trainer = Trainer.find(params[:trainer_id])
     puts "<<<<<<<< >>>>>>>>>>>>>>>>>"
     
-
+    @amount = 5000
     token = params[:stripeToken]
     card_brand = params[:user][:card_brand]
     card_exp_month = params[:user][:card_exp_month]
@@ -24,9 +24,9 @@ class ChargesController < ApplicationController
 
     charge = Stripe::Charge.create(
       :customer => customer.id,
-      :amount => 30000,
+      :amount => @amount,
       :currency => "aud",
-      :description => "Booking for ",
+      :description => "Booking for #{trainer.first_name}",
       :statement_descriptor => (trainer.first_name + " " + trainer.last_name)
     )  
     # debugger
