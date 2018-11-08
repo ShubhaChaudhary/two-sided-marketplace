@@ -5,9 +5,9 @@ Rails.application.routes.draw do
   
   # get '/stripeit/:id' => "trainers#stripeit"
 
-  resources :trainers do
-    get 'stripeit', :on => :collection
-  end 
+  resources :trainers do 
+    resources :charges
+  end
 
   root 'pages#home'
 

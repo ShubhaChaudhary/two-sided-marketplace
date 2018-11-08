@@ -1,9 +1,9 @@
 class TrainersController < ApplicationController
-  before_action :set_trainer, only: [:show, :edit, :update, :destroy, :stripeit]
+  before_action :set_trainer, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:show, :edit, :update, :destroy]
 
   def stripeit
-    @trainers = Trainer.all.order("created_at DESC")
+    # @trainers = Trainer.all.order("created_at DESC")
   end
   # GET /trainers
   # GET /trainers.json
@@ -29,36 +29,9 @@ class TrainersController < ApplicationController
   # POST /trainers
   # POST /trainers.json
   def create    
-    @trainer = Trainer.new(trainer_params)
-    debugger
-    token = params[:stripeToken]
-    # name = params[:name]
-    card_brand = params[:user][:card_brand]
-    card_exp_month = params[:user][:card_exp_month]
-    card_exp_year  = params[:user][:card_exp_year]
-    card_last4 = params[:user][:card_last4]
+    pp params
+    @trainer = Trainer.new(trainer_params) 
 
-    
-      customer = Stripe::Customer.create(
-      :email  => "stripe_email@example.com",
-      :source => token
-    )
-
-
-    charge = Stripe::Charge.create(
-      :customer => customer.id,
-      :amount => 30000,
-      :currency => "aud",
-      :description => "coach_type",
-      :statement_descriptor => "coach_title"
-    )  
-
-    
-    rescue Stripe::CardError => e
-      flash.alert = e.message
-      render action: :stripeit
-    
-      
     respond_to do |format|
       if @trainer.save
         format.html { redirect_to @trainer, notice: 'Trainer was successfully created.' }

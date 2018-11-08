@@ -7,7 +7,9 @@
   <div class="col-md-8">  
     <div class="panel panel-default">
       
-      <%= form_tag(@trainers , id: "payment_form") do %>
+      <%# <%= form_tag(@trainers , id: "payment_form") do  %>
+      <%# <%= form_for @friend,:url=> { action: "create_friend"} do %>
+      <%= form_tag(trainer_charges_path , id: "payment_form") do  %>
         <div class="form-group">
           <label for="card-element">
             Credit or debit card
