@@ -6,9 +6,12 @@ https://arcane-garden-28449.herokuapp.com/
 https://github.com/ShubhaChaudhary/two-sided-marketplace
 # Description of your project
 * Problem definition / purpose
+Make a rail app that's give the platform to trainer and trainee to come together and benefited by the technology.Which is easy to use,secure and with diverse option available according to thier needs. 
 * Functionality / features
+sing-in,sing-up ,registration ,payment, validation(authentication) ,booking ,authrization(admin)
 * Screenshots
 * Tech stack (e.g. html, css, deployment platform, etc)
+Device for 
 * Instructions on how to setup, configure and use your App.
 * Design documentation including,
 * Design process
