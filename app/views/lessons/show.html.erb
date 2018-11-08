@@ -7,15 +7,11 @@
 
        <div class="media-body">
         <h4 class="media-heading"><%= @lesson.title %></h4>
-        <h4 class="media-heading"><%= @lesson.title %></h4>
         <h5 class="p-2">Brisbane</h5>
         <p class="p-2"><%= @lesson.description %></p>
-        <p class="text-center bg bg-danger py-5">Au$50/hr</p>
+        
         <%= link_to('Back', root_path, class: "btn btn-info" ) %>
-        <%= link_to('Add to Cart', 
-                     lessons_path, 
-                     class: "btn btn-warning pull-right", 
-                     id: 'add-to-cart' ) %>
+      
         <%= link_to('Book Now', 
                      lessons_path, 
                      class: "btn btn-active pull-right",
