@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :trainers
   resources :lessons
+  get 'seller' => "trainers#seller"
   root 'pages#home'
 
   devise_for :users,
