@@ -1,6 +1,10 @@
 class TrainersController < ApplicationController
   before_action :set_trainer, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:show, :edit, :update, :destroy]
 
+  def stripeit
+    
+  end
   # GET /trainers
   # GET /trainers.json
   def index

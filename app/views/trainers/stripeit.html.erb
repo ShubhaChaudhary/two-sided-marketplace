@@ -1,0 +1,48 @@
+<div class="row">
+  <div class="col-md-4 text-center">
+    <div class="thumnail">
+      <%= image_tag('credit-card.png') %>
+    </div>
+  </div>
+  <div class="col-md-8">
+  
+  
+    <%= form_tag(stripeit_path, id: "payment_form") do %>
+      <div class="form-group">
+        <label for="card_number">Credit Card Number</label>
+        <input type="text" name="" class="form-control" id="card_number" data-stripe="name" placeholder="Card Number">
+      </div>
+
+      <div class="form-group">
+        <div class="row">
+          <div class="col-md-9">
+            <label for="name_on_card">Name on Card </label>
+            <input type="text" name="" data-stripe="name" class="form-control" id="name_on_card" placeholder="Name on card">
+          </div>
+
+          <div class="col-md-3">
+            <label for="card_code">CVC</label>
+            <input type="text" name="" class="form-control" id="card_code" data-stripe="cvc" placeholder="CVC">
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= label_tag nil, "Expiration Month" %>
+        <div class="row">
+          <div class="col-md-3">          
+            <%= select_month nil, {use_two_digit_numbers: true},{name: nil, :'data-stripe' => "exp-month", class: "form-control"} %>
+          </div>
+          <div class="col-md-3"> 
+            <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+10}, {name: nil, :'data-stripe' => "exp-year", class: "form-control"} %>
+          </div> 
+        </div>
+      </div>
+
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Complete Order</button>
+      </div>
+      
+    <% end %>
+  </div>
+</div>
