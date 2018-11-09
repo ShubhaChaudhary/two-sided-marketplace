@@ -2,6 +2,7 @@ class TrainersController < ApplicationController
   before_action :set_trainer, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:seller, :new, :create, :edit, :update, :destroy]
   before_action :check_user, only: [:edit, :update, :destroy]
+  # before_action :check_user, only: [:edit, :update, :destroy]
 
  def seller
    @trainers = Trainer.where(user_id: current_user.id)
