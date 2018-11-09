@@ -1,5 +1,8 @@
 require 'rails_helper'
 
+# NOTE!!!!!!
+# To run the test please ensure to comment out before_action: for authenticate_user! and 
+# check_user for both the trainer controller
 RSpec.describe Trainer, type: :model do
   # creating context for user validation
   context 'validation tests' do 
