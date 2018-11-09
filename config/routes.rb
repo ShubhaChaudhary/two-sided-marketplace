@@ -1,5 +1,11 @@
 require 'sidekiq/web'
 Rails.application.routes.draw do
+  # resources :trainers, only: [:index, :show, :edit, :new, :stripeit ]
+  # # get "stripeit" => "trainers/stripeit"
+  
+  # get '/stripeit/:id' => "trainers#stripeit"
+
+  # resources :trainers do 
   
   resources :lessons
   get 'seller' => "trainers#seller"
@@ -8,10 +14,9 @@ Rails.application.routes.draw do
   resources :trainers do
     resources :charges
     collection do
-        get :terms
-      end
+      get :terms
+    end
   end
-  # resources :trainers
 
   root 'pages#home'
 
