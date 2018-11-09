@@ -26,6 +26,7 @@
           </div>
           <div class="col-md-4">
             <div class="form-group">
+              
               <%= select_month nil, {use_two_digit_numbers: true}, {:name=> "numOfHours", :'data-stripe' => "numhours", class: "form-control"} %>
             </div>
           </div>
@@ -33,7 +34,6 @@
         
         
         
-        <%= link_to('Back', trainers_path, class: "btn btn-info" ) %>
         <%= link_to('Book Now', 
                      new_trainer_charge_path(params[:id]), 
                      class: "btn btn-warning pull-right", 

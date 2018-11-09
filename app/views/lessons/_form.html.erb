@@ -1,6 +1,12 @@
 
 <%= simple_form_for(@lesson, html: { class: 'form-horizontal'}) do |f|%>
-
+    <% unless @lesson.errors.empty? %>
+  <script type="text/javascript">
+  <% @@lesson.errors.full_messages.each do |value| %>
+      toastr.error('<%= value %>')
+  <% end %>
+</script>
+  <% end %>
   <div class="form-inputs">
     <%= f.input :title, class: "form-control" %>
     <%= f.collection_select :category_id, Category.all, :id, :name, {prompt: "Choose a Sport"}, class: "form-control" %>

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   
   resources :lessons
   get 'seller' => "trainers#seller"
+  get 'about' => "pages#about"
   
   resources :trainers do
     resources :charges

@@ -11,6 +11,8 @@
     <%= f.input :first_name, class: "form-control" %>
     <%= f.input :last_name, class: "form-control" %>
     <%= f.input :phone, class: "form-control" %>
+        <%= f.collection_select :category_id, Category.all, :id, :name, {prompt: "Choose a Sport"}, class: "form-control" %>
+
     <%= f.input :bio, as: :text, class: "form-control", :input_html => {rows: "5"} %>
     <%= f.input :experience, class: "form-control" %>
     <%= f.input :avatar, as: :file %>

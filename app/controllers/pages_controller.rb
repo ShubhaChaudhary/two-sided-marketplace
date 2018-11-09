@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   # SEEDED DATA TO BE REPLACED WITH THOSE FROM DATABASE
-  SPORT_TABLE = ['Tenis', 'Cricket', 'Rugby', 'Soccer', 'Basketball', 'Gym']
+  SPORT_TABLE = ['Tennis', 'Cricket', 'Rugby', 'Soccer', 'Basketball', 'Gym']
 
   def home
     # This data is to be replaced with data from the Sports Table

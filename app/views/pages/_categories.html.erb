@@ -8,9 +8,13 @@
           <%= link_to(image_tag("#{cat.downcase}.png"), trainers_path) %>
           <div class="caption  text-center">
             <h3><%= cat.capitalize %></h3>
-            <%= link_to('Show',   trainers_path, class: "btn-link" ) %>
+            <% if (!user_signed_in?) %>
+               <%= link_to('Show',   trainers_path, class: "btn-link" ) %>
+              <%else%>
+
             <%= link_to('Edit',   trainers_path, class: "btn-link" ) %>
             <%= link_to('Delete', trainers_path, method: :delete, data: {confirm:  "Are you sure?"}, class: "btn-link" ) %>
+            <% end %>
           </div>         
         </div>
       </div>
