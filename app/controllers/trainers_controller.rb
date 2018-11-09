@@ -1,7 +1,6 @@
 class TrainersController < ApplicationController
   before_action :set_trainer, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:seller, :new, :create, :edit, :update, :destroy]
-  before_action :check_user, only: [:edit, :update, :destroy]
 
  def seller
    @trainers = Trainer.where(user_id: current_user.id)
@@ -81,9 +80,5 @@ class TrainersController < ApplicationController
     def trainer_params
       params.require(:trainer).permit(:photo, :first_name, :last_name, :phone, :bio, :experience, :user_id, :account_id, :avatar, :category_id,:terms_of_services)
     end
-    def check_user
-      if  current_user.id != @trainer.user_id
-        redirect_to root_url, flash[:notice] = "Sorry, this listing belongs to someone else"
-    end
-    end
+
 end
