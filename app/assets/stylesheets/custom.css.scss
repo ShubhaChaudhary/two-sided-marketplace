@@ -172,7 +172,23 @@ box-shadow: 1px 7px 28px 0px rgba(0,0,0,0.75);
 .search{
     position: absolute;
     top:50%;
-    left:50px;
+    left:25%;
+}
+.search .text-field{
+    height: 65px;
+    width: 600px;
+    border: 1px solid  #DD2225; 
+    border-radius: 2px;
+    font-size: 16px;
+    font-weight: bold;
+    padding-left:10px;
+    color:#dd2225;
+}
+.search .btn.btn-normal{
+    height: 65px;
+    width: 120x;
+    font-size: 16px;
+    font-weight: bold;
 }
 
  .jumbotron{

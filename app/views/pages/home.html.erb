@@ -6,7 +6,12 @@
   
             
   </h1>
-
+    <div class="search">
+      <%= form_tag(trainers_path, :method => "get", id: "search-form") do %>
+      <%= text_field_tag :search, params[:search], placeholder: "Where do you live", class: "text-field" %>
+      <%= submit_tag "Search", :name => nil, class: "btn btn-normal" %>
+  <% end %>
+  </div>
   <p class="lead"></p>
 
   <p></p>
