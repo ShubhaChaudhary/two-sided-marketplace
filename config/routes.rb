@@ -1,9 +1,17 @@
 require 'sidekiq/web'
 Rails.application.routes.draw do
-
-  resources :trainers
+  
   resources :lessons
   get 'seller' => "trainers#seller"
+  
+  resources :trainers do
+    resources :charges
+    collection do
+        get :terms
+      end
+  end
+  # resources :trainers
+
   root 'pages#home'
 
   devise_for :users,

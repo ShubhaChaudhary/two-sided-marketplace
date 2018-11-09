@@ -7,6 +7,9 @@ class TrainersController < ApplicationController
    @trainers = Trainer.where(user_id: current_user.id)
  end
 
+  def stripeit
+    # @trainers = Trainer.all.order("created_at DESC")
+  end
   # GET /trainers
   # GET /trainers.json
   def index
@@ -16,6 +19,7 @@ class TrainersController < ApplicationController
   # GET /trainers/1
   # GET /trainers/1.json
   def show
+    @trainer=Trainer.find(params[:id])
   end
 
   # GET /trainers/new
@@ -64,7 +68,9 @@ class TrainersController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+  def terms
+    render 'terms'
+  end  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_trainer
@@ -73,7 +79,7 @@ class TrainersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def trainer_params
-      params.require(:trainer).permit(:photo, :first_name, :last_name, :phone, :bio, :experience, :user_id, :account_id, :avatar, :category_id)
+      params.require(:trainer).permit(:photo, :first_name, :last_name, :phone, :bio, :experience, :user_id, :account_id, :avatar, :category_id,:terms_of_services)
     end
     def check_user
       if  current_user.id != @trainer.user_id

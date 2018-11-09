@@ -1,30 +1,51 @@
-    <div class="panel panel-default">
-        <div class="media">
-        <div class="media-left media-middle">
-            <%= image_tag @trainer.avatar.url(:medium), class: "media-object" %>
-        </div>
-           
+    <div class="panel panel-default show-panel">
+  <div class="row">
+    <%# This line will get replace with categories from Sport Table in data  %>
+    <%# <% @coach.each do |item, detail| %> 
+    <%# <% @trainers.each do |trainer|%> 
+      <div class="col-md-4">
+        <div class="img-thumbnails thumbnail">
+        <%= image_tag(@trainer.avatar.url, class: "media-object") %> 
+          <%# <%= image_tag(detail[:image], alt: "Profile image") %>                 
+        </div>  
+        <div class="caption  text-center">
+          <h3><%= @trainer.experience  %></h3>
+          <p class="lead text-center">*****</p>
+        </div>      
+      </div>    
 
-       <div class="media-body">
-        <h4 class="media-heading"><%= @trainer.first_name %> &nbsp; <%= @trainer.last_name %></h4>
-        <h5 class="p-2">Brisbane</h5>
+      <div class="col-md-8">
+        <h3 class="media-heading"><%= @trainer.first_name %> &nbsp; <%= @trainer.last_name %></h3>
+
+
+        <%# <h5 class="p-2"><%= detail[:city] %></h5> 
         <p class="p-2"><%= @trainer.bio %></p>
-        <p class="p-2"><%= @trainer.phone %></p>
-        <p class="p-2"><%= @trainer.experience %></p>
-        <p class="text-center bg bg-danger py-5">Au$50/hr</p>
-        <%= link_to('Back', root_path, class: "btn btn-info" ) %>
-        <%= link_to('Add to Cart', 
-                     trainers_path, 
-                     class: "btn btn-warning pull-right", 
-                     id: 'add-to-cart' ) %>
-        <%= link_to('Book Now', 
-                     trainers_path, 
-                     class: "btn btn-active pull-right",
-                     id: 'book-now' ) %>
-      </div>
+        <div class="row">
+          <div class="col-md-3">
+            <p class="text-center bg bg-danger py-5" id="amount">Au$50/hr</p>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <%= select_month nil, {use_two_digit_numbers: true}, {:name=> "numOfHours", :'data-stripe' => "numhours", class: "form-control"} %>
+            </div>
+          </div>
         </div>
-    </div>
-
+        
+        
+        
+        <%= link_to('Back', trainers_path, class: "btn btn-info" ) %>
+        <%= link_to('Book Now', 
+                     new_trainer_charge_path(params[:id]), 
+                     class: "btn btn-warning pull-right", 
+                     id: 'add-to-cart') %>
+        <%# <%= link_to('Book Now', 
+                     stripeit_path, 
+                     class: "btn btn-active pull-right",
+                     id: 'book-now' )  %>
+      </div>    
+  
+  </div>
+</div>
 
 <%= link_to 'Edit', edit_trainer_path(@trainer) %> |
 <%= link_to 'Back', trainers_path %>

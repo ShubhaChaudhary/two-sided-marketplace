@@ -1,22 +1,14 @@
-<%= simple_form_for @trainer do |f| %>
- <% unless @trainer.errors.empty? %>
-<script type="text/javascript">
-<% @trainer.errors.full_messages.each do |value| %>
-    toastr.error('<%= value %>')
-<% end %>
-</script>
-
-<% end %>
+<%= simple_form_for @trainer, :html => {:multipart => true} do |f| %>
 
   <div class="form-inputs">
     <%= f.input :first_name, class: "form-control" %>
     <%= f.input :last_name, class: "form-control" %>
-    <%= f.collection_select :category_id, Category.all, :id, :name, {prompt: "Choose a Sport"}, class: "form-control" %>
     <%= f.input :phone, class: "form-control" %>
-    <%= f.input :bio, as: :text, class: "form-control" %>
+    <%= f.input :bio, as: :text, class: "form-control", :input_html => {rows: "5"} %>
     <%= f.input :experience, class: "form-control" %>
-  
     <%= f.input :avatar, as: :file %>
+    <%= f.check_box :terms_of_service%><p>accept terms & conditions</p>
+    <%= link_to 'Terms and condition', {:controller => :trainers, :action => :terms} %>
   </div>
 
   <div class="form-actions">

@@ -12,9 +12,9 @@ class Trainer < ApplicationRecord
                  :avatar_file_name, presence: true, length: {maximum: 50}
 validates_attachment_presence :avatar
       
-def self.search(search)
-  where("brisbane LIKE ? OR jaouad LIKE ? OR  LIKE ?", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%") 
-end
+
+    attr_accessor :terms_of_service
+    validates :terms_of_service, acceptance: true
 
 end
 

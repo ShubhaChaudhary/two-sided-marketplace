@@ -194,7 +194,7 @@ box-shadow: 1px 7px 28px 0px rgba(0,0,0,0.75);
  .jumbotron{
      position: relative;
     color:#fff;
-    background: url(sports.jpg);
+    background: url(sports.jpg) 50% 50%;
     background-size: cover;
     height: 650px;
     clip-path: polygon(0 0, 100% 0, 100% 70vh, 0 100%);
