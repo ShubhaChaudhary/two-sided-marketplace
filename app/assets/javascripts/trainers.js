@@ -1,9 +1,9 @@
 document.addEventListener("turbolinks:load", function() {
-    const public_key = document.querySelector("meta[name='stripe-public-key").content;
-    const stripe = Stripe(public_key);
-    const elements = stripe.elements();
+    var public_key = document.querySelector("meta[name='stripe-public-key").content;
+    var stripe = Stripe(public_key);
+    var elements = stripe.elements();
 
-    const style = {
+    var style = {
         base: {
             color: '#32325d',
             lineHeight: '32px',
@@ -20,7 +20,7 @@ document.addEventListener("turbolinks:load", function() {
         }
     };
 
-    const card = elements.create('card', {
+    var card = elements.create('card', {
         style: style
     });
 
@@ -29,7 +29,7 @@ document.addEventListener("turbolinks:load", function() {
     card.addEventListener('change', ({
         error
     }) => {
-        const displayError = document.getElementById('card-errors');
+        var displayError = document.getElementById('card-errors');
         if (error) {
             displayError.textContent = error.message;
         } else {
@@ -38,7 +38,7 @@ document.addEventListener("turbolinks:load", function() {
     });
 
 
-    const form = document.getElementById('payment_form');
+    var form = document.getElementById('payment_form');
     // Create a token or display an error when the form is submitted.
     // var form = document.getElementById('payment-form');
     form.addEventListener('submit', function(event) {
