@@ -1,8 +1,20 @@
 <div class="center jumbotron">
-  <h1 class="display-4">Hello, Sports!</h1>
-  <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+  <h1 class="display-4"> 
 
-  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+        Discover Your Next Personal Trainer
+   
+  
+            
+  </h1>
+    <div class="search">
+      <%= form_tag(trainers_path, :method => "get", id: "search-form") do %>
+      <%= text_field_tag :search, params[:search], placeholder: "Where do you live", class: "text-field" %>
+      <%= submit_tag "Search", :name => nil, class: "btn btn-normal" %>
+  <% end %>
+  </div>
+  <p class="lead"></p>
+
+  <p></p>
  
 </div>
 

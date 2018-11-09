@@ -1,0 +1,25 @@
+    <div class="panel panel-default">
+        <div class="media">
+        <div class="media-left media-middle">
+            <%= image_tag @lesson.image.url(:medium), class: "media-object" %>
+        </div>
+           
+
+       <div class="media-body">
+        <h4 class="media-heading"><%= @lesson.title %></h4>
+        <h5 class="p-2">Brisbane</h5>
+        <p class="p-2"><%= @lesson.description %></p>
+        
+        <%= link_to('Back', root_path, class: "btn btn-info" ) %>
+      
+        <%= link_to('Book Now', 
+                     lessons_path, 
+                     class: "btn btn-active pull-right",
+                     id: 'book-now' ) %>
+      </div>
+        </div>
+    </div>
+
+
+<%= link_to 'Edit', edit_lesson_path(@lesson) %> |
+<%= link_to 'Back', lessons_path %>

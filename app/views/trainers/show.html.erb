@@ -48,5 +48,6 @@
 </div>
 
 <%= link_to 'Edit', edit_trainer_path(@trainer) %> |
-<%= link_to 'Back', trainers_path %> | 
-<%= link_to('Delete', @trainer, method: :delete, data: {confirm:  "Are you sure?"}) %>
+<%= link_to 'Back', trainers_path %>
+<%= link_to('Delete', trainer_path(@trainer), method: :delete, data: {confirm:  "Are you sure?"}, class: "btn-link" ) %>
+

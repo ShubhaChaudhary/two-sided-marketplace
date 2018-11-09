@@ -15,6 +15,27 @@ ActiveRecord::Schema.define(version: 2018_11_06_013112) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "lessons", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.string "image"
+    t.bigint "trainer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.bigint "image_file_size"
+    t.datetime "image_updated_at"
+    t.integer "category_id"
+    t.index ["trainer_id"], name: "index_lessons_on_trainer_id"
+  end
+
   create_table "trainers", force: :cascade do |t|
     t.string "photo"
     t.string "first_name"
@@ -30,6 +51,8 @@ ActiveRecord::Schema.define(version: 2018_11_06_013112) do
     t.string "avatar_content_type"
     t.bigint "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.bigint "trainer_id"
+    t.integer "category_id"
     t.index ["account_id"], name: "index_trainers_on_account_id"
     t.index ["user_id"], name: "index_trainers_on_user_id"
   end
@@ -54,4 +77,5 @@ ActiveRecord::Schema.define(version: 2018_11_06_013112) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "lessons", "trainers"
 end

@@ -5,7 +5,12 @@ Rails.application.routes.draw do
   
   # get '/stripeit/:id' => "trainers#stripeit"
 
-  resources :trainers do 
+  # resources :trainers do 
+  
+  resources :lessons
+  get 'seller' => "trainers#seller"
+  
+  resources :trainers do
     resources :charges
     collection do
       get :terms

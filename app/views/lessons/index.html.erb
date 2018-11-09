@@ -1,0 +1,24 @@
+
+
+
+
+<%= link_to 'New Sport', new_lesson_path %>
+
+<h3 class="text-center">Brows your local Coaches in your city</h3>
+<% @lessons.each do |lesson| %>
+  <div class="panel panel-default">
+      <ul class="media-list md-6">
+        <li class="media">
+          <div class="media-left">
+            <%= image_tag(lesson.image.url(:medium), class: "media-object") %>
+
+          </div>
+          <div class="media-body md-6">
+            <h4 class="card-title"><%= lesson.title %></h4>
+            <h4 class="card-title"><%= lesson.description %></h4>
+            <h5 class="card-title"><%= "brisbane" %></h5>
+          </div>
+        </li>
+      </ul>
+  </div>
+<% end %>

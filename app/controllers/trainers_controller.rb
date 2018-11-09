@@ -1,6 +1,11 @@
 class TrainersController < ApplicationController
   before_action :set_trainer, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:seller, :new, :create, :edit, :update, :destroy]
+  before_action :check_user, only: [:edit, :update, :destroy]
+
+ def seller
+   @trainers = Trainer.where(user_id: current_user.id)
+ end
 
   def stripeit
     # @trainers = Trainer.all.order("created_at DESC")
@@ -28,20 +33,17 @@ class TrainersController < ApplicationController
 
   # POST /trainers
   # POST /trainers.json
-  def create    
-    pp params
-    @trainer = Trainer.new(trainer_params) 
+  def create
+    @trainer = Trainer.new(trainer_params)
+    @trainer.user_id = current_user.id
 
-    respond_to do |format|
-      if @trainer.save
-        format.html { redirect_to @trainer, notice: 'Trainer was successfully created.' }
-        format.json { render :show, status: :created, location: @trainer }
+    if @trainer.save
+        redirect_to @trainer
       else
-        format.html { render :new }
-        format.json { render json: @trainer.errors, status: :unprocessable_entity }
+        render 'new'
       end
     end
-  end
+  
 
   # PATCH/PUT /trainers/1
   # PATCH/PUT /trainers/1.json
@@ -77,6 +79,11 @@ class TrainersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def trainer_params
-      params.require(:trainer).permit(:photo, :first_name, :last_name, :phone, :bio, :experience, :user_id, :account_id, :avatar,:terms_of_services)
+      params.require(:trainer).permit(:photo, :first_name, :last_name, :phone, :bio, :experience, :user_id, :account_id, :avatar, :category_id,:terms_of_services)
+    end
+    def check_user
+      if  current_user.id != @trainer.user_id
+        redirect_to root_url, flash[:notice] = "Sorry, this listing belongs to someone else"
+    end
     end
 end

@@ -25,3 +25,6 @@
       </div>       
   </div>
 <% end %>
+ <% if (user_signed_in?) %>
+<%= link_to 'New Trainer', new_trainer_path %>
+<% end %>
