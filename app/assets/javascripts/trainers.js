@@ -26,9 +26,9 @@ document.addEventListener("turbolinks:load", function() {
 
     card.mount("#card-element");
 
-    card.addEventListener('change', ({
+    card.addEventListener('change', function({
         error
-    }) => {
+    }) {
         var displayError = document.getElementById('card-errors');
         if (error) {
             displayError.textContent = error.message;
