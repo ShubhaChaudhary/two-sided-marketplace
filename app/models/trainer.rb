@@ -4,12 +4,12 @@ class Trainer < ApplicationRecord
      #belongs_to :lesson
      belongs_to :category
 
- validates :first_name, 
-                 :last_name,
-                 :phone, 
-                 :bio, 
-                 :experience,
-                 :avatar_file_name, presence: true, length: {maximum: 50}
+ validates  :first_name, 
+            :last_name,
+            :phone, 
+            :bio, 
+            :experience,
+            :avatar_file_name, presence: true, length: {maximum: 50}
 validates_attachment_presence :avatar
       
 
